@@ -49,6 +49,9 @@ class ThingsBridge {
     return Application("Things3").lists.byName("Logbook");
   }
 
+  // TODO: test this query to make sure it handles timezones etc. correctly
+  // TODO: keep a list of recent task ID's that have already been sent to habitica to prevent
+  // sending duplicates
   completedToday() {
     return this.asRealArray(
       this.logbook().toDos.whose({ completionDate: { _greaterThan: this.yesterday() } })
